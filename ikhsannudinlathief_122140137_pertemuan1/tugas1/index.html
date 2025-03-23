@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List Naks IF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col items-center py-10">
+    <h1 class="text-2xl font-bold mb-6">To Do List Naks IF</h1>
+
+    <div class="flex gap-2 mb-4">
+      <input
+        type="text"
+        id="todo-input"
+        placeholder="Masukkan tugas baru..."
+        class="border p-2 rounded w-64"
+      />
+      <button id="add-btn" class="bg-blue-500 text-white px-4 py-2 rounded">
+        Buat
+      </button>
+    </div>
+
+    <ul id="todo-list" class="w-80 space-y-2"></ul>
+
+    <script src="script.js"></script>
+  </body>
+</html>
