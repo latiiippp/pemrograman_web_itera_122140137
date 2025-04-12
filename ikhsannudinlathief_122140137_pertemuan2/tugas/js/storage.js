@@ -19,17 +19,7 @@ const Storage = {
     return data
       ? JSON.parse(data)
       : [
-          {
-            id: 1,
-            day: "Senin",
-            courses: [
-              {
-                name: "Pemrograman Web",
-                time: "07:30 - 09:10",
-                room: "GKU Lt.8 R.3",
-              },
-            ],
-          },
+          { id: 1, day: "Senin", courses: [] },
           { id: 2, day: "Selasa", courses: [] },
           { id: 3, day: "Rabu", courses: [] },
           { id: 4, day: "Kamis", courses: [] },
