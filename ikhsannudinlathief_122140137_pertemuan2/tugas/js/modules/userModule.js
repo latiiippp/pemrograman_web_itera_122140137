@@ -151,11 +151,11 @@ async function showEditProfileModal() {
     modal.classList.remove("hidden");
 
     // Add animation for better user experience
-    const modalContent = modal.querySelector("div");
+    const modalContent = modal.querySelector(".modal-content");
     if (modalContent) {
       modalContent.classList.add("opacity-0", "transform", "scale-95");
-
-      // Animate in (using setTimeout to ensure the initial state is rendered first)
+      
+      // Animate in
       setTimeout(() => {
         modalContent.classList.remove("opacity-0", "scale-95");
         modalContent.classList.add(
@@ -171,52 +171,53 @@ async function showEditProfileModal() {
     document.getElementById("editUsername").value = user.name || "";
     document.getElementById("editUserNim").value = user.nim || "";
     document.getElementById("editUserProgram").value = user.program || "";
+    
+    // Reset update button state
+    const updateBtn = document.getElementById("updateProfileBtn");
+    updateBtn.disabled = false;
+    updateBtn.innerHTML = "Update";
+    
+    // Remove any existing event listeners by replacing the button with its clone
+    const oldUpdateBtn = updateBtn;
+    const newUpdateBtn = oldUpdateBtn.cloneNode(true);
+    oldUpdateBtn.parentNode.replaceChild(newUpdateBtn, oldUpdateBtn);
+    
+    // Add new event listener to the fresh button
+    newUpdateBtn.addEventListener("click", async function() {
+      const name = document.getElementById("editUsername").value.trim();
+      const nim = document.getElementById("editUserNim").value.trim();
+      const program = document.getElementById("editUserProgram").value.trim();
 
-    // Set up update button
-    document
-      .getElementById("updateProfileBtn")
-      .addEventListener("click", async function handleUpdate() {
-        const name = document.getElementById("editUsername").value.trim();
-        const nim = document.getElementById("editUserNim").value.trim();
-        const program = document.getElementById("editUserProgram").value.trim();
-
-        if (name && nim && program) {
-          try {
-            const updateButton = this;
-            updateButton.disabled = true;
-            updateButton.innerHTML =
-              '<i class="fas fa-spinner fa-spin"></i> Updating...';
-
-            const updatedUser = await userManager.updateUser(
-              name,
-              nim,
-              program
-            );
-            modal.classList.add("hidden");
-            await updateUserInfo(updatedUser);
-
-            // Remove event listener to prevent multiple bindings
-            this.removeEventListener("click", handleUpdate);
-          } catch (error) {
-            console.error("Error updating profile:", error);
-            alert(
-              "There was an error updating your profile. Please try again."
-            );
-          }
-        } else {
-          alert("Please fill out all fields.");
+      if (name && nim && program) {
+        try {
+          this.disabled = true;
+          this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
+          
+          const updatedUser = await userManager.updateUser(name, nim, program);
+          modal.classList.add("hidden");
+          await updateUserInfo(updatedUser);
+        } catch (error) {
+          console.error("Error updating profile:", error);
+          alert("There was an error updating your profile. Please try again.");
+          
+          // Reset button on error
+          this.disabled = false;
+          this.innerHTML = "Update";
         }
-      });
-
-    // Set up cancel button
-    document
-      .getElementById("cancelProfileBtn")
-      .addEventListener("click", function handleCancel() {
-        modal.classList.add("hidden");
-
-        // Remove event listener to prevent multiple bindings
-        this.removeEventListener("click", handleCancel);
-      });
+      } else {
+        alert("Please fill out all fields.");
+      }
+    });
+    
+    // Also fix the cancel button by replacing it 
+    const oldCancelBtn = document.getElementById("cancelProfileBtn");
+    const newCancelBtn = oldCancelBtn.cloneNode(true);
+    oldCancelBtn.parentNode.replaceChild(newCancelBtn, oldCancelBtn);
+    
+    newCancelBtn.addEventListener("click", function() {
+      modal.classList.add("hidden");
+    });
+    
   } catch (error) {
     console.error("Error showing edit profile modal:", error);
   }
