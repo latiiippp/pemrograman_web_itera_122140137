@@ -42,3 +42,19 @@ const eventsList = document.getElementById("eventsList");
 // let untuk nilai yang berubah
 let statusClass = isCompleted ? "border-green-300" : isOverdue ? "border-red-300" : "border-orange-300";
 let timeLeftDisplay = "";
+
+### 2. Arrow Function
+```javascript
+// Implementasi dalam event handlers
+document.getElementById("saveTaskBtn").addEventListener("click", async function() {
+  // ...handler code
+});
+
+// Implementasi dalam array operations
+const completedCount = tasks.filter(t => t.completed).length;
+
+// Implementasi dalam setTimeout
+setTimeout(() => {
+  notification.classList.remove("opacity-0");
+  notification.classList.add("opacity-100");
+}, 10);
