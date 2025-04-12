@@ -1,6 +1,5 @@
-# Student Dashboard
+# ITERA Student Dashboard
 
-![ITERA Student Dashboard](./screenshots/dashboard-main.png)
 
 ## 📝 Deskripsi
 
