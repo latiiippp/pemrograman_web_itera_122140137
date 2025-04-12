@@ -145,7 +145,7 @@ async getTasks() {
 - Visualisasi Status: Tugas memiliki warna berbeda berdasarkan status (selesai, terlambat, mendekati deadline)
 - UI Animations: Transisi halus untuk modal dan interaksi pengguna
 - Responsive Design: Tampilan yang menyesuaikan berbagai ukuran layar
-- 
+
 ## 🚀 Cara Penggunaan
 1. Masukkan informasi pengguna saat pertama kali membuka aplikasi
 2. Navigasi antara tab menggunakan menu di bagian atas
@@ -157,3 +157,14 @@ async getTasks() {
 - CSS3 dengan Tailwind CSS
 - JavaScript ES6+
 - LocalStorage untuk menyimpan data
+
+## 📦 Instalasi dan Menjalankan Aplikasi
+1. Clone repositori:
+  git clone https://github.com/yourusername/student-dashboard.git
+2. Buka folder proyek:
+  cd tugas
+3. Karena aplikasi ini menggunakan ES modules, Anda perlu menjalankannya pada server lokal. Gunakan extension seperti Live Server di VS Code
+4. Klik kanan pada file index.html dan pilih Open With Live Server
+
+## 📝 Catatan
+Aplikasi ini menggunakan penyimpanan lokal browser (localStorage), sehingga data Anda akan tetap tersimpan selama Anda tidak menghapus cache browser.
