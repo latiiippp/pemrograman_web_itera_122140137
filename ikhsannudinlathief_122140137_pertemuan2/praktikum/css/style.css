@@ -1,0 +1,33 @@
+.output-item {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.375rem;
+}
+
+.output-item:nth-child(odd) {
+  background-color: #f3f4f6;
+}
+
+.output-item:nth-child(even) {
+  background-color: #e5e7eb;
+}
+
+.output-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1e40af;
+}
+
+.code {
+  font-family: monospace;
+  background-color: #f1f5f9;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.result {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: #dbeafe;
+  border-radius: 0.25rem;
+}

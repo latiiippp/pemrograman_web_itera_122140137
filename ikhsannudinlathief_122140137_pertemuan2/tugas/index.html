@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Student Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .hidden {
+        display: none;
+      }
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      /* Profile edit button hover effect */
+      #editProfileBtn {
+        transition: all 0.2s ease-in-out;
+      }
+
+      #editProfileBtn:hover {
+        transform: scale(1.05);
+      }
+
+      /* User initial hover effect */
+      #userInitial {
+        transition: all 0.2s ease-in-out;
+      }
+
+      #userInitial:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Modal animation */
+      .modal-content {
+        transition: all 0.3s ease-out;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div
+      id="editProfileModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
+    >
+      <div
+        class="bg-white p-6 rounded-lg shadow-lg w-96 max-w-full modal-content"
+      >
+        <h2 class="text-xl font-bold mb-4">Edit Profile</h2>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="editUsername"
+            >Name</label
+          >
+          <input
+            type="text"
+            id="editUsername"
+            class="w-full p-2 border rounded"
+            placeholder="Your name"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="editUserNim">NIM</label>
+          <input
+            type="text"
+            id="editUserNim"
+            class="w-full p-2 border rounded"
+            placeholder="Your NIM"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="editUserProgram"
+            >Program</label
+          >
+          <input
+            type="text"
+            id="editUserProgram"
+            class="w-full p-2 border rounded"
+            placeholder="Your program/major"
+          />
+        </div>
+        <div class="flex space-x-2">
+          <button
+            id="updateProfileBtn"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Update
+          </button>
+          <button
+            id="cancelProfileBtn"
+            class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Username Modal -->
+    <div
+      id="usernameModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
+    >
+      <div
+        class="bg-white p-6 rounded-lg shadow-lg w-96 max-w-full modal-content"
+      >
+        <h2 class="text-xl font-bold mb-4">Welcome to Student Dashboard</h2>
+        <p class="mb-4">Please enter your information to continue:</p>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="username">Name</label>
+          <input
+            type="text"
+            id="username"
+            class="w-full p-2 border rounded"
+            placeholder="Your name"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="userNim">NIM</label>
+          <input
+            type="text"
+            id="userNim"
+            class="w-full p-2 border rounded"
+            placeholder="Your NIM"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="userProgram"
+            >Program</label
+          >
+          <input
+            type="text"
+            id="userProgram"
+            class="w-full p-2 border rounded"
+            placeholder="Your program/major"
+          />
+        </div>
+        <button
+          id="saveUserInfo"
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+    <!-- Add this after the username modal -->
+    <div
+      id="editProfileModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
+    >
+      <div class="bg-white p-6 rounded-lg shadow-lg w-96 max-w-full">
+        <h2 class="text-xl font-bold mb-4">Edit Profile</h2>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="editUsername"
+            >Name</label
+          >
+          <input
+            type="text"
+            id="editUsername"
+            class="w-full p-2 border rounded"
+            placeholder="Your name"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="editUserNim">NIM</label>
+          <input
+            type="text"
+            id="editUserNim"
+            class="w-full p-2 border rounded"
+            placeholder="Your NIM"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="editUserProgram"
+            >Program</label
+          >
+          <input
+            type="text"
+            id="editUserProgram"
+            class="w-full p-2 border rounded"
+            placeholder="Your program/major"
+          />
+        </div>
+        <div class="flex space-x-2">
+          <button
+            id="updateProfileBtn"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Update
+          </button>
+          <button
+            id="cancelProfileBtn"
+            class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto p-4">
+      <!-- Header section, modify the user greeting part -->
+      <div class="flex justify-between items-center mb-4">
+        <img alt="Logo" class="h-20 ml-4" src="./images/logoItera.png" />
+        <div class="flex items-center space-x-3 mr-6">
+          <span class="text-gray-600" id="userGreeting">Hai, Mahasiswa</span>
+          <div
+            id="userInitial"
+            class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center cursor-pointer"
+            title="Edit profile"
+          >
+            ?
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="mb-4">
+        <ul class="flex space-x-2 border-b">
+          <li>
+            <button
+              class="tab-button px-4 py-2 hover:bg-gray-200 active-tab bg-gray-200"
+              data-tab="dashboard"
+            >
+              Dashboard
+            </button>
+          </li>
+          <li>
+            <button
+              class="tab-button px-4 py-2 hover:bg-gray-200"
+              data-tab="schedule"
+            >
+              Jadwal
+            </button>
+          </li>
+          <li>
+            <button
+              class="tab-button px-4 py-2 hover:bg-gray-200"
+              data-tab="tasks"
+            >
+              Tugas
+            </button>
+          </li>
+          <li>
+            <button
+              class="tab-button px-4 py-2 hover:bg-gray-200"
+              data-tab="notes"
+            >
+              Catatan
+            </button>
+          </li>
+          <li>
+            <button
+              class="tab-button px-4 py-2 hover:bg-gray-200"
+              data-tab="calendar"
+            >
+              Kalender
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Dashboard Tab -->
+      <div id="dashboard" class="tab-content active">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h1 class="text-2xl font-semibold mb-4" id="welcomeMessage">
+            Selamat Datang, Mahasiswa
+          </h1>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div
+              class="bg-teal-100 border border-teal-300 p-4 rounded-lg flex items-center space-x-4 cursor-pointer"
+              id="goToSchedule"
+            >
+              <i class="fas fa-graduation-cap text-teal-500 text-2xl"></i>
+              <div>
+                <h2 class="text-lg font-semibold">Jadwal Kuliah</h2>
+                <p class="text-sm text-teal-700" id="schedulePreview">
+                  Loading...
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-red-100 border border-red-300 p-4 rounded-lg flex items-center space-x-4 cursor-pointer"
+              id="goToTasks"
+            >
+              <i class="fas fa-book text-red-500 text-2xl"></i>
+              <div>
+                <h2 class="text-lg font-semibold">Pengingat Tugas</h2>
+                <p class="text-sm text-red-700" id="tasksPreview">Loading...</p>
+              </div>
+            </div>
+            <div
+              class="bg-yellow-100 border border-yellow-300 p-4 rounded-lg flex items-center space-x-4 cursor-pointer"
+              id="goToNotes"
+            >
+              <i class="fas fa-sticky-note text-yellow-500 text-2xl"></i>
+              <div>
+                <h2 class="text-lg font-semibold">Catatan Ringkas</h2>
+                <p class="text-sm text-yellow-700" id="notesPreview">
+                  Loading...
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-purple-100 border border-purple-300 p-4 rounded-lg flex items-center space-x-4 cursor-pointer"
+              id="goToCalendar"
+            >
+              <i class="fas fa-calendar-alt text-purple-500 text-2xl"></i>
+              <div>
+                <h2 class="text-lg font-semibold">Kalender Akademik</h2>
+                <p class="text-sm text-purple-700" id="calendarPreview">
+                  Loading...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schedule Tab -->
+      <div id="schedule" class="tab-content">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-semibold">Jadwal Kuliah</h1>
+            <button
+              id="addScheduleBtn"
+              class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600"
+            >
+              <i class="fas fa-plus mr-2"></i>Tambah Jadwal
+            </button>
+          </div>
+          <div id="scheduleList" class="grid grid-cols-1 gap-4"></div>
+        </div>
+      </div>
+
+      <!-- Tasks Tab -->
+      <div id="tasks" class="tab-content">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-semibold">Pengingat Tugas</h1>
+            <button
+              id="addTaskBtn"
+              class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            >
+              <i class="fas fa-plus mr-2"></i>Tambah Tugas
+            </button>
+          </div>
+          <div id="tasksList" class="grid grid-cols-1 gap-4"></div>
+        </div>
+      </div>
+
+      <!-- Notes Tab -->
+      <div id="notes" class="tab-content">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-semibold">Catatan Ringkas</h1>
+            <button
+              id="addNoteBtn"
+              class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+            >
+              <i class="fas fa-plus mr-2"></i>Tambah Catatan
+            </button>
+          </div>
+          <div
+            id="notesList"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Calendar Tab -->
+      <div id="calendar" class="tab-content">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-semibold">Kalender Akademik</h1>
+            <button
+              id="addEventBtn"
+              class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600"
+            >
+              <i class="fas fa-plus mr-2"></i>Tambah Event
+            </button>
+          </div>
+          <div id="eventsList" class="grid grid-cols-1 gap-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modals for adding/editing content (will be added by JS) -->
+    <div id="modalsContainer"></div>
+
+    <!-- Scripts -->
+    <script src="./js/storage.js" type="module"></script>
+    <script src="./js/app.js" type="module"></script>
+  </body>
+</html>
