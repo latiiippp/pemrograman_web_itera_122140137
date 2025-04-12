@@ -160,9 +160,13 @@ async getTasks() {
 
 ## 📦 Instalasi dan Menjalankan Aplikasi
 1. Clone repositori:
-    git clone https://github.com/yourusername/student-dashboard.git
+```git
+git clone https://github.com/yourusername/student-dashboard.git
+```
 2. Buka folder proyek:
-    cd tugas
+```git
+cd tugas
+```
 3. Karena aplikasi ini menggunakan ES modules, Anda perlu menjalankannya pada server lokal. Gunakan extension seperti Live Server di VS Code
 4. Klik kanan pada file index.html dan pilih Open With Live Server
 
