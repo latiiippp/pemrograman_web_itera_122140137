@@ -5,6 +5,9 @@
 
 Student Dashboard adalah aplikasi web yang membantu mahasiswa mengelola kegiatan akademik mereka secara efisien. Aplikasi ini dirancang untuk mempermudah mahasiswa dalam mengorganisir jadwal kuliah, mengingat tugas, menyimpan catatan, dan mengelola kalender akademik.
 
+## Deploy Vercel
+![pemrogramanwebitera122140137pertemuan2.vercel.app](https://pemrogramanwebitera122140137pertemuan2.vercel.app/)
+
 ## ✨ Fitur Utama
 
 - **Profil Pengguna**: Simpan dan edit informasi pengguna (nama, NIM, program studi)
