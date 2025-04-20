@@ -1,5 +1,8 @@
 ### Aplikasi Manajemen Buku Pribadi
-Aplikasi pengelola koleksi buku pribadi yang dibangun dengan React untuk membantu Anda melacak buku yang dimiliki, sedang dibaca, atau ingin dibeli.
+Aplikasi pengelola koleksi buku pribadi yang membantu untuk melacak buku yang dimiliki, sedang dibaca, atau ingin dibeli.
+
+### Deploy Vercel
+[Web Manajemen Buku Pribadi](https://ikhsannudinlathief122140137pertemuan3.vercel.app/)
 
 ### Deskripsi
 Aplikasi ini memungkinkan pengguna untuk mengelola koleksi buku pribadi mereka dengan antarmuka yang intuitif dan responsif. Pengguna dapat menambahkan buku baru, mengedit entri yang sudah ada, menghapus buku, dan memfilter koleksi berdasarkan status berbeda.
@@ -28,15 +31,18 @@ npm install
 npm start
 ```
 Aplikasi akan terbuka di browser default Anda di alamat http://localhost:3000.
-### Tangkapan Layar
+### Screenshots
 ![Halaman Utama](https://github.com/user-attachments/assets/941f28f8-4532-4069-b3f3-69f46974c374)
 Halaman Utama Antarmuka utama yang menampilkan koleksi buku dengan opsi pencarian dan filter
+
 
 ![Halaman Utama](https://github.com/user-attachments/assets/9e465c47-0ea8-4429-87a6-3fa5caed2b4b)
 Form Buku Formulir untuk menambahkan buku baru atau mengedit buku yang sudah ada
 
+
 ![Halaman Statistik](https://github.com/user-attachments/assets/b6a30ad0-109a-4cc7-ac78-3a34b1c793e7)
 Halaman Statistik Ringkasan statistik koleksi buku Anda
+
 
 ### Teknologi yang Digunakan
 Fitur React
