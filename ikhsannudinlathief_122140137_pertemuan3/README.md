@@ -19,7 +19,7 @@ Aplikasi ini memungkinkan pengguna untuk mengelola koleksi buku pribadi mereka d
 Ikuti langkah-langkah berikut untuk menjalankan aplikasi secara lokal:
 ```Git
 # Clone repositori
-git clone [https://github.com/username/aplikasi-manajemen-buku.git](https://github.com/latiiippp/pemrograman_web_itera_122140137.git)
+git clone https://github.com/latiiippp/pemrograman_web_itera_122140137.git
 
 # Masuk ke direktori proyek
 cd ikhsannudinlathief_122140137_pertemuan3
