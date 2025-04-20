@@ -32,9 +32,9 @@ describe("BookList Component", () => {
     expect(screen.getByText("Book 2")).toBeInTheDocument();
     expect(screen.getByText("by Author 2")).toBeInTheDocument();
 
-    // Check if status badges are displayed
-    expect(screen.getByText("Owned")).toBeInTheDocument();
-    expect(screen.getByText("Reading")).toBeInTheDocument();
+    // Check if status badges are displayed - Updated to match Indonesian text
+    expect(screen.getByText("Sudah Punya")).toBeInTheDocument();
+    expect(screen.getByText("Sedang Dibaca")).toBeInTheDocument();
   });
 
   test("displays no books message when list is empty", () => {
@@ -52,7 +52,7 @@ describe("BookList Component", () => {
       </BookContext.Provider>
     );
 
-    // Check for the "no books" message
-    expect(screen.getByText(/no books found/i)).toBeInTheDocument();
+    // Check for the "no books" message - Updated to match Indonesian text
+    expect(screen.getByText("Buku tidak ditemukan.")).toBeInTheDocument();
   });
 });

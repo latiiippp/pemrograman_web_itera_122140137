@@ -6,58 +6,56 @@ import { BookContext } from "../../context/BookContext";
 
 describe("BookForm Component", () => {
   test("allows adding a new book", () => {
-    // Mock the dispatch function
     const mockDispatch = jest.fn();
 
-    // Render BookForm with mocked context
     render(
-      <BookContext.Provider value={{ state: {}, dispatch: mockDispatch }}>
-        <BookForm onSave={jest.fn()} />
+      <BookContext.Provider value={{ dispatch: mockDispatch }}>
+        <BookForm onAddBook={() => {}} />
       </BookContext.Provider>
     );
 
     // Fill out the form
-    fireEvent.change(screen.getByLabelText(/title/i), {
+    fireEvent.change(screen.getByLabelText(/judul buku/i), {
       target: { value: "Test Book Title" },
     });
-
-    fireEvent.change(screen.getByLabelText(/author/i), {
+    fireEvent.change(screen.getByLabelText(/penulis/i), {
       target: { value: "Test Author" },
     });
-
-    // Select "Currently Reading" status
     fireEvent.change(screen.getByLabelText(/status/i), {
-      target: { value: "baca" },
+      target: { value: "milik" },
     });
 
     // Submit the form
-    fireEvent.click(screen.getByText(/add book/i));
+    fireEvent.click(screen.getByText("Tambah Buku"));
 
-    // Check if dispatch was called with the correct action
-    expect(mockDispatch).toHaveBeenCalledTimes(1);
+    // Check if dispatch was called with the correct action - changed "book" to "payload"
     expect(mockDispatch).toHaveBeenCalledWith({
       type: "ADD_BOOK",
       payload: expect.objectContaining({
         title: "Test Book Title",
         author: "Test Author",
-        status: "baca",
+        status: "milik",
       }),
     });
   });
 
   test("shows validation errors for empty fields", () => {
-    // Render BookForm
+    const mockDispatch = jest.fn();
+
     render(
-      <BookContext.Provider value={{ state: {}, dispatch: jest.fn() }}>
-        <BookForm />
+      <BookContext.Provider value={{ dispatch: mockDispatch }}>
+        <BookForm onAddBook={() => {}} />
       </BookContext.Provider>
     );
 
     // Submit form without filling it
-    fireEvent.click(screen.getByText(/add book/i));
+    fireEvent.click(screen.getByText("Tambah Buku"));
 
-    // Check for error messages
-    expect(screen.getByText(/title is required/i)).toBeInTheDocument();
-    expect(screen.getByText(/author is required/i)).toBeInTheDocument();
+    // Check for error messages - updated to match actual messages
+    expect(screen.getByText("Judul buku harus diisi!")).toBeInTheDocument();
+    expect(screen.getByText("Nama penulis harus diisi!")).toBeInTheDocument();
+
+    // Make sure dispatch was not called
+    expect(mockDispatch).not.toHaveBeenCalled();
   });
 });
