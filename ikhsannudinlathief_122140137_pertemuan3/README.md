@@ -29,13 +29,13 @@ npm start
 ```
 Aplikasi akan terbuka di browser default Anda di alamat http://localhost:3000.
 ### Tangkapan Layar
-G Halaman Utama
+![Halaman Utama](https://github.com/user-attachments/assets/941f28f8-4532-4069-b3f3-69f46974c374)
 Halaman Utama Antarmuka utama yang menampilkan koleksi buku dengan opsi pencarian dan filter
 
-G Form Tambah/Edit Buku
+![Halaman Utama](https://github.com/user-attachments/assets/9e465c47-0ea8-4429-87a6-3fa5caed2b4b)
 Form Buku Formulir untuk menambahkan buku baru atau mengedit buku yang sudah ada
 
-G Halaman Statistik
+![Halaman Statistik](https://github.com/user-attachments/assets/b6a30ad0-109a-4cc7-ac78-3a34b1c793e7)
 Halaman Statistik Ringkasan statistik koleksi buku Anda
 
 ### Teknologi yang Digunakan
