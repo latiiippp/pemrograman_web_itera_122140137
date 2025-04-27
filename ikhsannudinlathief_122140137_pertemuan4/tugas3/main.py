@@ -2,34 +2,42 @@ import math_operations
 from math_operations import celsius_to_fahrenheit, celsius_to_kelvin
 
 # Persegi
-sisi = 5
+print("Hitung Persegi")
+sisi = float(input("Masukkan panjang sisi persegi: "))
 luas, keliling = math_operations.persegi(sisi)
 print(f"Persegi (sisi={sisi})")
 print(f"- Luas     : {luas:.2f}")
 print(f"- Keliling : {keliling:.2f}")
 
 # Persegi Panjang
-p, l = 8, 4
+print("\nHitung Persegi Panjang")
+p = float(input("Masukkan panjang: "))
+l = float(input("Masukkan lebar: "))
 luas, keliling = math_operations.persegi_panjang(p, l)
 print(f"\nPersegi Panjang (p={p}, l={l})")
 print(f"- Luas     : {luas:.2f}")
 print(f"- Keliling : {keliling:.2f}")
 
 # Lingkaran
-jari_jari = 7
+print("\nHitung Lingkaran")
+jari_jari = float(input("Masukkan jari-jari lingkaran: "))
 luas, keliling = math_operations.lingkaran(jari_jari)
 print(f"\nLingkaran (r={jari_jari})")
 print(f"- Luas     : {luas:.2f}")
 print(f"- Keliling : {keliling:.2f}")
 
-# Menggunakan fungsi konversi suhu dengan import cara 2
+# Menggunakan fungsi konversi suhu dengan input
 print("\n[KONVERSI SUHU]")
 print("-" * 30)
 
-# Beberapa contoh suhu dalam Celsius
-suhu_celcius = [0, 25, 37, 100]
+# Input suhu dalam Celsius
+suhu_celcius = []
+jumlah_suhu = int(input("Berapa banyak suhu celcius yang ingin dikonversi? "))
+for i in range(jumlah_suhu):
+    suhu = float(input(f"Masukkan suhu ke-{i + 1} dalam Celsius: "))
+    suhu_celcius.append(suhu)
 
-print(f"{'Celsius':<10}{'Fahrenheit':<15}{'Kelvin':<10}")
+print(f"\n{'Celsius':<10}{'Fahrenheit':<15}{'Kelvin':<10}")
 print("-" * 35)
 
 for c in suhu_celcius:
