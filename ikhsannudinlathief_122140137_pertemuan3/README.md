@@ -87,3 +87,4 @@ Untuk menjalankan pengujian unit:
 ```Git
 npm test
 ```
+![Screenshots Test](https://github.com/user-attachments/assets/5b50e441-b038-4c7a-8e8b-c6170787d435)
