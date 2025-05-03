@@ -109,10 +109,22 @@ Meskipun method memiliki nama yang sama, implementasinya berbeda sesuai dengan j
 ## Cara Menjalankan Program
 
 1. Pastikan Python sudah terinstall di komputer Anda
-2. Jalankan file main.py melalui terminal
+2. Clone repository dengan menjalankan perintah berikut
+
+```git
+git clone https://github.com/latiiippp/pemrograman_web_itera_122140137.git
+```
+
+3. Jalankan perintah berikut melalui terminal
+
+```git
+cd ikhsannudinlathief_122140137_pertemuan5
+```
+
+4. Jalankan file main.py melalui terminal
 
 ```git
 python main.py
 ```
 
-3. Ikuti menu interaktif yang ditampilkan
+5. Ikuti menu interaktif yang ditampilkan
