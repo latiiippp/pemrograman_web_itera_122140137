@@ -118,7 +118,7 @@ git clone https://github.com/latiiippp/pemrograman_web_itera_122140137.git
 3. Jalankan perintah berikut melalui terminal
 
 ```git
-cd ikhsannudinlathief_122140137_praktikum10
+cd ikhsannudinlathief_122140137_pertemuan5
 ```
 
 4. Jalankan file manajemen_perpustakaan.py melalui terminal
