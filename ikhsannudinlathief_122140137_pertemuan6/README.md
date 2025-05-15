@@ -46,7 +46,7 @@ Berikut adalah langkah-langkah untuk menginstal dan menjalankan API:
 1. **Clone Repository** (jika menggunakan git)
 
    ```bash
-   git clone <url-repository>
+   git clone https://github.com/latiiippp/pemrograman_web_itera_122140137.git
    cd ikhsannudinlathief_122140137_pertemuan6
    ```
 
@@ -74,13 +74,13 @@ Berikut adalah langkah-langkah untuk menginstal dan menjalankan API:
    Edit file `development.ini` dan sesuaikan URL database PostgreSQL:
 
    ```
-   sqlalchemy.url = postgresql://username:password@localhost:5432/nama_database
+   sqlalchemy.url = postgresql://username:password@localhost:5432/manajemen_matakuliah
    ```
 
 5. **Inisialisasi Database dan Jalankan Migrasi**
 
    ```bash
-   initialize_manajemen_matakuliah_db development.ini
+   initialize_manajemen_matakuliah development.ini
    alembic -c development.ini upgrade head
    ```
 
@@ -98,34 +98,34 @@ Berikut adalah langkah-langkah untuk menginstal dan menjalankan API:
 
 #### 1. Mendapatkan Semua Mata Kuliah
 
-- **URL**: `/api/matakuliah`
+- **URL**: `http://localhost:6543/api/matakuliah`
 - **Method**: GET
 - **Response**: List semua mata kuliah
 
 #### 2. Mendapatkan Detail Mata Kuliah
 
-- **URL**: `/api/matakuliah/{id}`
+- **URL**: `http://localhost:6543/api/matakuliah/{id}`
 - **Method**: GET
 - **Response**: Detail mata kuliah berdasarkan ID
 
 #### 3. Menambahkan Mata Kuliah Baru
 
-- **URL**: `/api/matakuliah`
+- **URL**: `http://localhost:6543/api/matakuliah`
 - **Method**: POST
 - **Body**:
   ```json
   {
-    "kode_mk": "IF3030",
+    "kode_mk": "IF3028",
     "nama_mk": "Pemrograman Web",
     "sks": 3,
-    "semester": 5
+    "semester": 6
   }
   ```
 - **Response**: Data mata kuliah yang berhasil ditambahkan
 
 #### 4. Mengupdate Mata Kuliah
 
-- **URL**: `/api/matakuliah/{id}`
+- **URL**: `http://localhost:6543/api/matakuliah/{id}`
 - **Method**: PUT
 - **Body**:
   ```json
@@ -138,7 +138,7 @@ Berikut adalah langkah-langkah untuk menginstal dan menjalankan API:
 
 #### 5. Menghapus Mata Kuliah
 
-- **URL**: `/api/matakuliah/{id}`
+- **URL**: `http://localhost:6543/api/matakuliah/{id}`
 - **Method**: DELETE
 - **Response**: Status sukses penghapusan
 
@@ -162,7 +162,7 @@ Berikut contoh penggunaan cURL untuk mengakses API:
 curl http://localhost:6543/api/matakuliah
 
 # POST mata kuliah baru
-curl -X POST -H "Content-Type: application/json" -d '{"kode_mk":"IF3031", "nama_mk":"Basis Data", "sks":3, "semester":4}' http://localhost:6543/api/matakuliah
+curl -X POST -H "Content-Type: application/json" -d '{"kode_mk":"IF3028", "nama_mk":"Pemrograman Web", "sks":3, "semester":6}' http://localhost:6543/api/matakuliah
 ```
 
 ## Troubleshooting
@@ -179,20 +179,17 @@ curl -X POST -H "Content-Type: application/json" -d '{"kode_mk":"IF3031", "nama_
 - Pastikan format request sudah benar
 - Validasi data yang dikirimkan sesuai dengan model
 
-## Pengembangan Lebih Lanjut
-
-Beberapa fitur yang dapat ditambahkan untuk pengembangan:
-
-1. Autentikasi dan otorisasi
-2. Validasi input yang lebih lengkap
-3. Dokumentasi API dengan Swagger
-4. Frontend untuk manajemen mata kuliah
-5. Penambahan relasi ke model lain (seperti Dosen atau Mahasiswa)
-
 ## Kontributor
 
 - Ikhsannudin Lathief (122140137)
 
-## Lisensi
+## Screenshots
 
-[MIT License](LICENSE)
+![Get List Matkul](dokumentasi/1%20get%20list%20matkul.png)
+![Get Detail Matkul berdasar id](dokumentasi/2%20get%20detail%20matkul.png)
+![Add matkul baru](dokumentasi/3%20add%20matkul.png)
+![Get list baru matkul](dokumentasi/4%20get%20list%20update%20matkul.png)
+![Update matkul berdasar id](dokumentasi/5%20update%20matkul.png)
+![Get list baru matkul](dokumentasi/6%20update%20list%20matkuls.png)
+![Delete matkul berdasar id](dokumentasi/7%20delete%20matkul.png)
+![Get list baru matkul](dokumentasi/8%20list%20matkul%20terupdate.png)
